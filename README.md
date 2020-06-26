@@ -11,6 +11,7 @@ graphCU: 实现graph的 增加/更新 节点/关系
 # 导出图数据库中可统计的数据的使用
 
 仅导出了10000条数据
+
 ![image](https://github.com/OnikoKane/RMgraph/blob/master/%E5%AF%BC%E5%87%BA%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AEx.jpg)
 
 反欺诈model的使用：将label为拒绝的数据后，添加该数据中flag=1的数据同时还需更改personID和txID，label为不拒绝则反之(更改txID是方便后端查询)
