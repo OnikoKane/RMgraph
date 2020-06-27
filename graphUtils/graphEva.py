@@ -202,10 +202,13 @@ class GraphEva:
 
     def userRmtNum(self, value):
         # 交易金额大于4000才计数
-        cache = self.graph.run(
-            "match (s:`person`)-[p:`remittance`]-(o:`person`) where s.personID= '{}' return p.amount".format(
-                value)).data()
-        return len([i['p.amount'] for i in cache if int(i['p.amount']) >= 4000])
+        # cache = self.graph.run(
+        #     "match (s:`person`)-[p:`remittance`]-(o:`person`) where s.personID= '{}' return p.amount".format(
+        #         value)).data()
+        # return len([i['p.amount'] for i in cache if int(i['p.amount']) >= 4000])
+        return len(self.graph.run(
+            "match (s:`person`)-[p:`remittance`]-(o:`person`) where s.personID= '{}' and toInt(p.amount)>=4000 return p.amount".format(
+                value)).data())
 
     '''
         返回用户tx的数目x3(违约、完结、被拒）
@@ -224,7 +227,7 @@ class GraphEva:
         return defaultNum, clearNum, rejectedNum
 
     '''
-        导出数据（all user）
+        导出统计数据
         Input: path（output route）
         Output: void(output csv)
     '''
