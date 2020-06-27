@@ -1,6 +1,6 @@
 # 信贷风险控制课程作业的图数据库内容
 
-# pyProject中的文件
+# pyProject中的文件(记得更改neo4j密码为本机的密码，默认为neo4j)
 
 graphService: 前端展示用数据返回，具体返回内容查看test code中的graphTest
 
@@ -8,7 +8,6 @@ graphEva: 为person实体创建分析后得知的隐藏关系 + 生成并导出�
 
 graphCU: 实现graph的 增加/更新 节点/关系 
 
-记得更改neo4j密码为本机的密码，默认为neo4j
 
 # 导出图数据库中可统计的数据的使用（目前两个model不打算使用额外的统计数据，改为在前端展示）
 
