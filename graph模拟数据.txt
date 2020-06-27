@@ -1,0 +1,130 @@
+搜索id='person_1'，返回的是dict(json) or -1
+
+统计数据：（推荐表格形式展示）
+若不存在查询的ID则返回-1，前端需要自行判断是否展示
+
+{
+'是否在黑名单': 0,
+ '历史用户评分': 'AA',
+ '一层关系黑户数': 0,
+ '二层关系黑户数': 0,
+ '持有手机数': 1,
+ '大额转账数': 7,
+ '违约贷款数': 1,
+ '完结贷款数': 1,
+ '被拒贷款数': 0
+}
+
+
+人物关系网：（推荐画图形式展示）
+若不存在查询的ID则返回-1，前端需要自行判断是否展示
+
+{'rels': {'colleague': [{'o.name': 'name_7',
+    'o.personID': 'person_7',
+    'o.status': 'A',
+    'o.flag': '0',
+    'rels': {'colleague': [{'o.name': 'name_1',
+       'o.personID': 'person_1',
+       'o.status': 'AA',
+       'o.flag': 0}],
+     'acknowledge': [{'o.name': 'name_11',
+       'o.personID': 'person_11',
+       'o.status': 'AA',
+       'o.flag': '0'}],
+     'parent': [{'o.name': 'name_8',
+       'o.personID': 'person_8',
+       'o.status': 'B',
+       'o.flag': '0'}]}},
+   {'o.name': 'name_2',
+    'o.personID': 'person_2',
+    'o.status': 'A',
+    'o.flag': '0',
+    'rels': {'colleague': [{'o.name': 'name_1',
+       'o.personID': 'person_1',
+       'o.status': 'AA',
+       'o.flag': 0}],
+     'acknowledge': [{'o.name': 'name_3',
+       'o.personID': 'person_3',
+       'o.status': 'A',
+       'o.flag': '0'}],
+     'parent': []}}],
+  'acknowledge': [{'o.name': 'name_20',
+    'o.personID': 'person_20',
+    'o.status': 'A',
+    'o.flag': '0',
+    'rels': {'colleague': [{'o.name': 'name_18',
+       'o.personID': 'person_18',
+       'o.status': 'C',
+       'o.flag': '0'},
+      {'o.name': 'name_17',
+       'o.personID': 'person_17',
+       'o.status': 'AA',
+       'o.flag': '0'}],
+     'acknowledge': [{'o.name': 'name_1',
+       'o.personID': 'person_1',
+       'o.status': 'AA',
+       'o.flag': 0}],
+     'parent': []}},
+   {'o.name': 'name_10',
+    'o.personID': 'person_10',
+    'o.status': 'A',
+    'o.flag': '0',
+    'rels': {'colleague': [{'o.name': 'name_13',
+       'o.personID': 'person_13',
+       'o.status': 'A',
+       'o.flag': '0'}],
+     'acknowledge': [{'o.name': 'name_8',
+       'o.personID': 'person_8',
+       'o.status': 'B',
+       'o.flag': '0'},
+      {'o.name': 'name_6',
+       'o.personID': 'person_6',
+       'o.status': 'AA',
+       'o.flag': '0'},
+      {'o.name': 'name_5',
+       'o.personID': 'person_5',
+       'o.status': 'C',
+       'o.flag': '0'},
+      {'o.name': 'name_1',
+       'o.personID': 'person_1',
+       'o.status': 'AA',
+       'o.flag': 0}],
+     'parent': []}}],
+  'parent': [{'o.name': 'name_4',
+    'o.personID': 'person_4',
+    'o.status': 'AA',
+    'o.flag': '0',
+    'rels': {'colleague': [],
+     'acknowledge': [],
+     'parent': [{'o.name': 'name_5',
+       'o.personID': 'person_5',
+       'o.status': 'C',
+       'o.flag': '0'},
+      {'o.name': 'name_1',
+       'o.personID': 'person_1',
+       'o.status': 'AA',
+       'o.flag': 0}]}}]},
+ 'user': [{'s.name': 'name_1',
+   's.personID': 'person_1',
+   's.status': 'AA',
+   's.flag': 0}]}
+
+
+拥有电话：（推荐画图形式展示）
+若不存在查询的ID则返回-1，前端需要自行判断是否展示
+
+{'user': [{'s.name': 'name_1',
+   's.personID': 'person_1',
+   's.status': 'AA',
+   's.flag': 0}],
+ 'ownPhone': [{'o.number': 'num_2', 'o.phone': 'phone_2', 'o.flag': '0'}]}
+
+历史订单（tx）：（推荐画图形式展示）
+若不存在查询的ID则返回-1，前端需要自行判断是否展示
+
+{'user': [{'s.name': 'name_1',
+   's.personID': 'person_1',
+   's.status': 'AA',
+   's.flag': 0}],
+ 'apply': [{'o.txID': 'tx_2', 'o.status': 'OVER_DUE'},
+  {'o.txID': 'tx_1', 'o.status': 'CLEAR'}]}
