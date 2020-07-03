@@ -1,9 +1,8 @@
 from py2neo import Graph
 
-url = 'localhost:7474'
+url = 'http://localhost:7474'
 username = 'neo4j'
 password = 'neo4j'
-
 '''
     一系列辅助func，不需要使用
     statExData: 图数据库统计数据
@@ -172,12 +171,12 @@ class GraphService:
 
     def userPhone(self, value):
         userEntity = self.graph.run(
-            "match (:`person`) where s.personID= '{}' return s.name, s.personID, s.status, s.flag".format(value)).data()
+            "match (s:`person`) where s.personID= '{}' return s.name, s.personID, s.status, s.flag".format(value)).data()
         if len(userEntity) > 0:
             rt = {}
             rt['user'] = userEntity
             rt['ownPhone'] = self.graph.run(
-                "match (s:`person`)-[p:`ownPhone`]-(o：`phone`) where s.personID= '{}' return o.number,o.phone,o.flag".format(
+                "match (s:`person`)-[p:`ownPhone`]-(o:`phone`) where s.personID= '{}' return o.number,o.phone,o.flag".format(
                     value)).data()
             return rt
         else:
@@ -192,7 +191,7 @@ class GraphService:
 
     def userTx(self, value):
         userEntity = self.graph.run(
-            "match (:`person`) where s.personID= '{}' return s.name, s.personID, s.status, s.flag".format(value)).data()
+            "match (s:`person`) where s.personID= '{}' return s.name, s.personID, s.status, s.flag".format(value)).data()
         if len(userEntity) > 0:
             rt = {}
             rt['user'] = userEntity
